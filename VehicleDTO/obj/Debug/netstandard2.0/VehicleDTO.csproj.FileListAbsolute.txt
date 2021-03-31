@@ -1,0 +1,9 @@
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/bin/Debug/netstandard2.0/VehicleDTO.deps.json
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/bin/Debug/netstandard2.0/VehicleDTO.dll
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/bin/Debug/netstandard2.0/VehicleDTO.pdb
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/obj/Debug/netstandard2.0/VehicleDTO.csprojAssemblyReference.cache
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/obj/Debug/netstandard2.0/VehicleDTO.AssemblyInfoInputs.cache
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/obj/Debug/netstandard2.0/VehicleDTO.AssemblyInfo.cs
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/obj/Debug/netstandard2.0/VehicleDTO.csproj.CoreCompileInputs.cache
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/obj/Debug/netstandard2.0/VehicleDTO.dll
+/home/ethereum/Desktop/githubProjects/monoOsijek/VehicleDTO/obj/Debug/netstandard2.0/VehicleDTO.pdb

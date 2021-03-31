@@ -1,0 +1,4 @@
+#.dockerignore
+
+/Backend/obj/
+/Backend/bin/
