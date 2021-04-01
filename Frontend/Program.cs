@@ -6,20 +6,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
- 
-using Backend.Data;
-using Backend.Services;
 
-namespace Backend
+namespace Frontend
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args)
-		.Build()
-		.MigrateDatabase<ApplicationDbContext>()
-		.Run();
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

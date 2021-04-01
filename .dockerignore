@@ -2,3 +2,7 @@
 
 /Backend/obj/
 /Backend/bin/
+/Frontend/obj/
+/Frontend/bin/
+/VehicleDTO/obj
+/VehicleDTO/bin
