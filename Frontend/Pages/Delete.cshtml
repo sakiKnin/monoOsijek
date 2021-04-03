@@ -1,0 +1,39 @@
+@page "{id}"
+@model Frontend.Pages.DeleteModel
+
+@{
+	ViewData["Title"]="Delete";
+}
+
+@if(@ViewData["status"]==null){
+
+	<div class="alert alert-danger">
+    		<h5>Are you shure you want to delete vehicle by the id: <span style="color:green">@ViewContext.RouteData.Values["id"]</span> ?</h5>
+    		<form method="post" asp-page-handler="OnDelete">
+			<button type="submit" class="btn btn-danger">Yes</button>
+			<a class="btn btn-primary" asp-page="/Index">No</a>
+    		</form>	
+	</div>
+}
+else
+{
+@if(@ViewData["status"] is int)
+	{
+		@if((int)@ViewData["status"]!=0){
+		
+			<h1>Delete Confirnmation</h1>
+			<h3>You have deleted a vehicle by the id: @ViewData["status"] !</h3>
+			<a class="btn btn-primary" asp-page="/Index">Home</a>
+	
+		}
+		else
+		{	 
+			<h3>Something went wrong while deleting, try again !</h3>
+			<a class="btn btn-primary" asp-page="/Index">Home</a>	
+		}
+	}
+}
+ 
+
+
+ 

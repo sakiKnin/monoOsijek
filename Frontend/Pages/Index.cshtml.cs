@@ -25,13 +25,14 @@ namespace Frontend.Pages
         public async Task<IActionResult> OnGet()
 	{
     		Vehicles = await _apiClient.GetVehicleMakeAsync();
-		/*
-    		if (Speaker == null)
+		
+    		if (Vehicles.Count==0)
     		{
-        		return NotFound();
-    		}*/
+        		return Page();
+    		}
 
     		return Page();
 	}
+
     }
 }
