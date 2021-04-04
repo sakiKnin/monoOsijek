@@ -10,17 +10,17 @@ using Frontend.Models;
 
 namespace Frontend.Pages
 {
-    public class VehicleMakeModel : PageModel
+    public class UpdateModel : PageModel
     {
         private readonly IApiClient _apiClient;
 
-        public VehicleMakeModel(IApiClient apiClient)
+        public UpdateModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
         }
 
 	[BindProperty]
-        public VehicleModel Vehicle { get; set; }
+        public VehicleMakeModel Vehicle { get; set; }
 
         public VehicleMakeResponse VehicleMake { get; set; }
 
@@ -40,7 +40,7 @@ namespace Frontend.Pages
 	    if( Vehicle.Name==null | Vehicle.Abbrevation==null )
 			 return Page();
 
-	    var vehicle = new VehicleModel{
+	    var vehicle = new VehicleMakeModel{
 			Id=id,
 			Name=Vehicle.Name,
 			Abbrevation=Vehicle.Abbrevation,

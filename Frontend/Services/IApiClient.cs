@@ -11,8 +11,8 @@ namespace Frontend.Services
     {
        Task<List<VehicleMakeResponse>> GetVehicleMakeAsync();
        Task<VehicleMakeResponse> GetVehicleMakeAsync(int id);
-       Task<VehicleModel> PostVehicleMakeAsync(VehicleModel model);
-       Task<bool> UpdateVehicleMakeAsync(int id, VehicleModel vehicle);
-       Task<VehicleModel> DeleteVehicleMakeAsync(int id);
+       Task<VehicleMakeModel> PostVehicleMakeAsync(VehicleMakeModel model);
+       Task<bool> UpdateVehicleMakeAsync(int id, VehicleMakeModel vehicle);
+       Task<VehicleMakeModel> DeleteVehicleMakeAsync(int id);
     }
 }

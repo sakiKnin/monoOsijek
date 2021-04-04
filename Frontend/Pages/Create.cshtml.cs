@@ -10,22 +10,22 @@ using Frontend.Models;
 
 namespace Frontend.Pages
 {
-    public class CreateVehicleMakeModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly IApiClient _apiClient;
 
-        public CreateVehicleMakeModel(IApiClient apiClient)
+        public CreateModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
 	     
         }
 	
 	[BindProperty]
-        public VehicleModel Vehicle { get; set; }
+        public VehicleMakeModel Vehicle { get; set; }
 	 
         public async Task<IActionResult> OnPost()
 	{
-		var vehicle = new VehicleModel{
+		var vehicle = new VehicleMakeModel{
 		   	Id=Vehicle.Id,
 		   	Name=Vehicle.Name,
 		   	Abbrevation=Vehicle.Abbrevation,

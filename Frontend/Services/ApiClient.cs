@@ -4,9 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks; 
-
 using Newtonsoft.Json;
-
 using Frontend.Models;
  
 namespace Frontend.Services
@@ -44,7 +42,7 @@ namespace Frontend.Services
             return await response.Content.ReadAsAsync<VehicleMakeResponse>();
         }
 	 
-	public async Task<VehicleModel> PostVehicleMakeAsync(VehicleModel model)
+	public async Task<VehicleMakeModel> PostVehicleMakeAsync(VehicleMakeModel model)
         {
             var vehicle = new VehicleMakeResponse
 	    {
@@ -60,7 +58,7 @@ namespace Frontend.Services
 		if(response.IsSuccessStatusCode)
 	    	{
 	    		var responseText = await response.Content.ReadAsStringAsync();
-	    		var data = JsonConvert.DeserializeObject<VehicleModel>(responseText);
+	    		var data = JsonConvert.DeserializeObject<VehicleMakeModel>(responseText);
 
 	    		return data;
 	    	}
@@ -76,10 +74,10 @@ namespace Frontend.Services
 		 Console.WriteLine(e.ToString());
 	    }
 
-	    return new VehicleModel();
+	    return new VehicleMakeModel();
 	     
         }
-	public async Task<bool> UpdateVehicleMakeAsync(int id, VehicleModel vehicle)
+	public async Task<bool> UpdateVehicleMakeAsync(int id, VehicleMakeModel vehicle)
 	{
 		var response = await _httpClient.PutAsJsonAsync($"/api/VehicleMake/{id}", vehicle);
 		 
@@ -93,7 +91,7 @@ namespace Frontend.Services
 		return false;
 	}
 	
-	public async Task<VehicleModel> DeleteVehicleMakeAsync(int id)
+	public async Task<VehicleMakeModel> DeleteVehicleMakeAsync(int id)
 	{
 		var response = await _httpClient.DeleteAsync($"/api/VehicleMake/{id}");
 		 
@@ -101,13 +99,13 @@ namespace Frontend.Services
 		if(response.IsSuccessStatusCode){
 	      
              		var responseText = await response.Content.ReadAsStringAsync();
-			var data = JsonConvert.DeserializeObject<VehicleModel>(responseText);
+			var data = JsonConvert.DeserializeObject<VehicleMakeModel>(responseText);
 		 
 			return data;
 		}
 		else
 		{
-			return new VehicleModel();
+			return new VehicleMakeModel();
 		}
 		
 	}

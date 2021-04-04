@@ -29,7 +29,12 @@ namespace Frontend
 	    {
     		client.BaseAddress = new Uri(Configuration["serviceUrl"]);
 	     });
-            services.AddRazorPages();
+
+	    services.AddAutoMapper(typeof(Startup));
+
+	    services.AddScoped<IVehicleService, VehicleService>();
+            
+	    services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

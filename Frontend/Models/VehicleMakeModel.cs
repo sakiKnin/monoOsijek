@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Frontend.Models
 {
-    public class VehicleModel
+    public class VehicleMakeModel
     {
 
 	[Required]
