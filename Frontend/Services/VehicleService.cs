@@ -2,40 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Frontend.Models;
 
 namespace Frontend.Services
 {
 	public class VehicleService : IVehicleService
 	{
-		 
-		 
-		public List<VehicleMakeModel> GetPaginatedResult(List<VehicleMakeModel> vehicles, int currentPage, int pageSize = 10)
+ 
+		public List<T> GetPaginatedResult<T>(List<T> vehicles, int currentPage, int pageSize = 10)
     		{
-
 			return vehicles.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
     		}
 
-    		public int GetCount(List<VehicleMakeModel> vehicles)
+    		public int GetCount<T>(List<T> vehicles)
     		{
-
         		return vehicles.Count;
     		}
-		
-		public List<VehicleModelModel> GetPaginatedModelResult(List<VehicleModelModel> vehicles, int currentPage, int pageSize = 10)
-    		{
-
-			return vehicles.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
-    		}
-
-    		public int GetModelCount(List<VehicleModelModel> vehicles)
-    		{
-
-        		return vehicles.Count;
-    		}
-
-
 	}
 
 }

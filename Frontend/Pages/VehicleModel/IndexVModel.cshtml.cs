@@ -83,8 +83,8 @@ namespace Frontend.Pages.VehicleModel
 				break;		
 		}
 		 
-		Data = _vehicleService.GetPaginatedModelResult(vehicles.ToList(), currentPage ?? 1, PageSize);
-        	Count = _vehicleService.GetModelCount(vehicles.ToList());
+		Data = _vehicleService.GetPaginatedResult<VehicleModelModel>(vehicles.ToList(), currentPage ?? 1, PageSize);
+        	Count = _vehicleService.GetCount<VehicleModelModel>(vehicles.ToList());
 
     		return Page();
 	}
