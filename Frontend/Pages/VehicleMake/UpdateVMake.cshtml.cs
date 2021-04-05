@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using Frontend.Models;
 
-namespace Frontend.Pages
+namespace Frontend.Pages.VehicleMake
 {
-    public class UpdateModel : PageModel
+    public class UpdateVMakeModel : PageModel
     {
         private readonly IApiClient _apiClient;
 
-        public UpdateModel(IApiClient apiClient)
+        public UpdateVMakeModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
         }
@@ -37,7 +37,7 @@ namespace Frontend.Pages
         }
 	public async Task<IActionResult> OnPost(int id)
         {
-	    if( String.IsNullOrEmpty(Vehicle.Name) || String.IsNullOrEmpty(Vehicle.Abbrevation) )
+	    if(String.IsNullOrEmpty(Vehicle.Name) || String.IsNullOrEmpty(Vehicle.Abbrevation))
 			 return Page();
 
 	    var vehicle = new VehicleMakeModel{

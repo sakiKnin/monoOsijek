@@ -8,8 +8,15 @@ using Frontend.Models;
 namespace Frontend.Services{
 	public interface IVehicleService
 	{
-		  
-    		List<VehicleMakeModel> GetPaginatedResult(List<VehicleMakeModel> vehicles, int currentPage, int pageSize = 3);
+
+		// Service for VehicleMake
+
+		List<VehicleMakeModel> GetPaginatedResult(List<VehicleMakeModel> vehicles, int currentPage, int pageSize = 3);
     		int GetCount(List<VehicleMakeModel> vehicles);
+
+		// Service for VehicleModel
+		  
+    		List<VehicleModelModel> GetPaginatedModelResult(List<VehicleModelModel> vehicles, int currentPage, int pageSize = 3);
+    		int GetModelCount(List<VehicleModelModel> vehicles);
 	}
 }

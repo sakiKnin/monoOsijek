@@ -8,32 +8,33 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using Frontend.Models;
 
-namespace Frontend.Pages
+namespace Frontend.Pages.VehicleModel
 {
-    public class CreateModel : PageModel
+    public class CreateVModel : PageModel
     {
         private readonly IApiClient _apiClient;
 
-        public CreateModel(IApiClient apiClient)
+        public CreateVModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
         }
 	
 	[BindProperty]
-        public VehicleMakeModel Vehicle { get; set; }
+        public VehicleModelModel Vehicle { get; set; }
 	 
         public async Task<IActionResult> OnPost()
 	{
-		if(Vehicle.Id<1 || String.IsNullOrEmpty(Vehicle.Name) || String.IsNullOrEmpty(Vehicle.Abbrevation))
+		if(Vehicle.Id<1 || Vehicle.MakeId<1 || (Vehicle.Name).Length<3 || (Vehicle.Abbrevation).Length<3)
 					return Page();
 		
-		var vehicle = new VehicleMakeModel{
+		var vehicle = new VehicleModelModel{
 		   	Id=Vehicle.Id,
+			MakeId=Vehicle.MakeId,
 		   	Name=Vehicle.Name,
 		   	Abbrevation=Vehicle.Abbrevation,
 		  	};
 
-		var response = await _apiClient.PostVehicleMakeAsync(vehicle);
+		var response = await _apiClient.PostVehicleModelAsync(vehicle);
 		ViewData["status"]=response.Id;
 		
 		return Page();

@@ -1,4 +1,4 @@
-﻿@page "{currentPage:int?}"
+﻿@page  
  
 @model IndexModel
 
@@ -7,74 +7,11 @@
 }
 
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Vehicles</li>
-    <li class="breadcrumb-item"><a asp-page="Create">Create</a></li>
+    <li class="breadcrumb-item"><a class="btn btn-primary" asp-page="/VehicleMake/IndexVMake">VehicleMake list</a></li>
+</ol>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="btn btn-primary" asp-page="/VehicleModel/IndexVModel">VehicleModel list</a></li>
 </ol>
 
-@if (Model.Vehicles.Count==0 && @ViewData["CurrentFilter"]==null)
-	    {
-		<p>No vehicles created...</p>
-	    }
-	    else if(Model.Data.Count==0 && @ViewData["CurrentFilter"]!=null)
-	    {
-		 <p>No vehicles found...</p>
-		 <a asp-action="/Index" class="btn btn-primary">Back to full list...</a>
-	    }
-	    else
-	    {
-		<ol class="breadcrumb">
-    			<li class="breadcrumb-item"><a asp-action="Index" asp-route-sortOrder="@ViewData["IdSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">SortById</a></li>
-    			<li class="breadcrumb-item"><a asp-page="CreateVehicleMake"><a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">SortByName</a></a></li>
-			<li class="breadcrumb-item"><a asp-action="Index" asp-route-sortOrder="@ViewData["AbbrevationSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">SortByAbbrevation</a></li>
-		</ol>
-		<form asp-action="Index" method="OnGet">
-			<div class="form-action no-color">
-				<p>
-					Filter by name:<input type="text" name="searchString" value="@ViewData["CurrentFilter"]"/>
-					<input type = "submit" value="Search" class="btn btn-success"/>
-					@if(@ViewData["CurrentFilter"]!=null)
-					{
-						<a asp-action="/Index" class="btn btn-primary">Back to full list</a>
-					}
-				</p>
-			</div>
-		</form>
-	    }
-<table class="table table-striped">
-
-    @if(Model.Data.Count!=0){
-    	<tr>
-		<td>ID</td>
-		<td>Name</td>
-		<td>Abbrevation</td>
-    	</tr>
-    }
-    @foreach (var item in Model.Data)
-    {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Abbrevation</td>
-	    <td>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item">
-				<a class="btn btn-success" asp-page="Update" asp-route-id="@item.Id">update</a>
-			</li>
-			<li class="breadcrumb-item">
-	    			<a class="btn btn-primary" asp-page="Delete" asp-route-id="@item.Id">delete</a>
-			</li>
-		</ol>
-	     </td>
-       </tr>
-    }
-</table>
-<div>
-    <ul class="pagination">
-        @for (var i = 1; i <= Model.TotalPages; i++)
-        {
-            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                <a asp-page="/Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-currentPage="@i" class="page-link">@i</a>
-            </li>
-        }
-    </ul>
-</div>
+ 
+ 

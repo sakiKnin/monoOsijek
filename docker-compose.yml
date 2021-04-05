@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
   web-app:
-    build: .
+    build: ./Backend
     depends_on:
             - db
     ports: 

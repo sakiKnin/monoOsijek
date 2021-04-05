@@ -8,14 +8,14 @@ using Frontend.Services;
 
 using Frontend.Models;
 
-namespace Frontend.Pages
+namespace Frontend.Pages.VehicleMake
 {
-    public class DeleteModel : PageModel
+    public class DeleteVMakeModel : PageModel
     {
     
         protected readonly IApiClient _apiClient;
 
-        public DeleteModel(IApiClient apiClient)
+        public DeleteVMakeModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
         }

@@ -1,8 +1,8 @@
 @page "{id}"
-@model Frontend.Pages.DeleteModel
+@model Frontend.Pages.VehicleMake.DeleteVMakeModel
 
 @{
-	ViewData["Title"]="Delete";
+	ViewData["Title"]="Delete vehicle make";
 }
 
 @if(@ViewData["status"]==null){
@@ -11,7 +11,7 @@
     		<h5>Are you shure you want to delete vehicle by the id: <span style="color:green">@ViewContext.RouteData.Values["id"]</span> ?</h5>
     		<form method="post" asp-page-handler="OnDelete">
 			<button type="submit" class="btn btn-danger">Yes</button>
-			<a class="btn btn-primary" asp-page="/Index">No</a>
+			<a class="btn btn-primary" asp-page="/VehicleMake/IndexVMake">No</a>
     		</form>	
 	</div>
 }
@@ -23,13 +23,13 @@ else
 		
 			<h1>Delete Confirnmation</h1>
 			<h3>You have deleted a vehicle by the id: @ViewData["status"] !</h3>
-			<a class="btn btn-primary" asp-page="/Index">Home</a>
+			<a class="btn btn-primary" asp-page="/VehicleMake/IndexVMake">Back to full list</a>
 	
 		}
 		else
 		{	 
 			<h3>Something went wrong while deleting, try again !</h3>
-			<a class="btn btn-primary" asp-page="/Index">Home</a>	
+			<a class="btn btn-primary" asp-page="/VehicleMake/IndexVMake">Back to full list</a>	
 		}
 	}
 }

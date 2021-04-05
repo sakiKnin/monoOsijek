@@ -20,5 +20,6 @@ namespace Backend.Data
                  .HasKey(ca => new { ca.MakeId });
 	}
         public DbSet<VehicleMake> VehicleMake { get; set; } 
+        public DbSet<Backend.Models.VehicleModel> VehicleModel { get; set; }
     }
 }

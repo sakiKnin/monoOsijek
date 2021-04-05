@@ -13,6 +13,7 @@ namespace Frontend
 		public VehicleProfile()
 		{
 			CreateMap<VehicleMakeResponse, VehicleMakeModel>();
+			CreateMap<VehicleModelResponse, VehicleModelModel>();
 		}
 	}
 }

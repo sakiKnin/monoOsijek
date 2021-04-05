@@ -22,6 +22,18 @@ namespace Frontend.Services
 
         		return vehicles.Count;
     		}
+		
+		public List<VehicleModelModel> GetPaginatedModelResult(List<VehicleModelModel> vehicles, int currentPage, int pageSize = 10)
+    		{
+
+			return vehicles.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+    		}
+
+    		public int GetModelCount(List<VehicleModelModel> vehicles)
+    		{
+
+        		return vehicles.Count;
+    		}
 
 
 	}

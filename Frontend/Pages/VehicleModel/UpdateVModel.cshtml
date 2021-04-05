@@ -1,0 +1,61 @@
+﻿@page "{id}/{makeId}/{name}/{abbrevation}"
+@model UpdateVModel
+
+@if(@ViewData["status"] is bool){
+
+	@if((bool)@ViewData["status"])
+	{
+		<div>
+			<h4>You have updateted item by the id: @ViewContext.RouteData.Values["id"] !</h4>
+		</div>
+	}
+	else
+	{
+		<div>
+			<h4>Something went wrong while updating, try again...</h4>
+		</div>
+	}
+	
+}
+
+<form method="post" class="mt-3" enctype="multipart/form-data" asp-page-handler="OnPost">
+	 <div asp-validation-summary="All" class="text-danger"></div>
+	 <div class="form-group row">
+        	<label asp-for="Vehicle.Id" class="col-sm-2 col-form-label"></label>
+        	<div class="col-sm-10">
+            		<input asp-for="Vehicle.Id" class="form-control"  value="@ViewContext.RouteData.Values["id"]" readonly>
+            		<span asp-validation-for="Vehicle.Id" class="text-danger"></span>
+        	</div>
+    	 </div>
+	 <div class="form-group row">
+        	<label asp-for="Vehicle.MakeId" class="col-sm-2 col-form-label"></label>
+        	<div class="col-sm-10">
+            		<input asp-for="Vehicle.MakeId" class="form-control"  value="@ViewContext.RouteData.Values["makeId"]" readonly>
+            		<span asp-validation-for="Vehicle.Id" class="text-danger"></span>
+        	</div>
+    	 </div>
+	 <div class="form-group row">
+        	<label asp-for="Vehicle.Name" class="col-sm-2 col-form-label">
+        	</label>
+           	<div class="col-sm-10">
+            		<input asp-for="Vehicle.Name" class="form-control" value="@ViewContext.RouteData.Values["name"]">
+            		<span asp-validation-for="Vehicle.Name" class="text-danger"></span>
+           	</div>
+    	 </div>
+	 <div class="form-group row">
+        	<label asp-for="Vehicle.Abbrevation" class="col-sm-2 col-form-label">
+        	</label>
+           	<div class="col-sm-10">
+            		<input asp-for="Vehicle.Abbrevation" class="form-control" value="@ViewContext.RouteData.Values["abbrevation"]">
+            		<span asp-validation-for="Vehicle.Abbrevation" class="text-danger"></span>
+           	</div>
+    	 </div>
+	<hr />
+	<button type="submit" class="btn btn-primary">
+	 	Update VModel
+	</button>
+</form>
+
+<hr />
+
+<a class="btn btn-primary" asp-page="/VehicleModel/IndexVModel">Back to full list</a>
