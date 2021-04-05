@@ -37,7 +37,7 @@ namespace Frontend.Pages
         }
 	public async Task<IActionResult> OnPost(int id)
         {
-	    if( Vehicle.Name==null | Vehicle.Abbrevation==null )
+	    if( String.IsNullOrEmpty(Vehicle.Name) || String.IsNullOrEmpty(Vehicle.Abbrevation) )
 			 return Page();
 
 	    var vehicle = new VehicleMakeModel{

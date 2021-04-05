@@ -17,7 +17,6 @@ namespace Frontend.Pages
         public CreateModel(IApiClient apiClient)
         {
             _apiClient = apiClient;
-	     
         }
 	
 	[BindProperty]
@@ -25,6 +24,9 @@ namespace Frontend.Pages
 	 
         public async Task<IActionResult> OnPost()
 	{
+		if(Vehicle.Id<1 || String.IsNullOrEmpty(Vehicle.Name) || String.IsNullOrEmpty(Vehicle.Abbrevation))
+					return Page();
+		
 		var vehicle = new VehicleMakeModel{
 		   	Id=Vehicle.Id,
 		   	Name=Vehicle.Name,
