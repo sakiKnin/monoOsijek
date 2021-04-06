@@ -75,7 +75,7 @@
         @for (var i = 1; i <= Model.TotalPages; i++)
         {
             <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                <a asp-page="/VehicleModel/IndexModel" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-currentPage="@i" class="page-link">@i</a>
+                <a asp-page="/VehicleModel/IndexVModel" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-currentPage="@i" class="page-link">@i</a>
             </li>
         }
     </ul>
