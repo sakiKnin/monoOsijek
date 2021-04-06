@@ -9,7 +9,9 @@ using Frontend.Services;
 using Frontend.Models;
 using AutoMapper;
 
-namespace Frontend.Pages
+using Microsoft.EntityFrameworkCore;
+
+namespace Frontend.Pages.VehicleMake
 {
     public class IndexVMakeModel : PageModel
     {
@@ -83,8 +85,8 @@ namespace Frontend.Pages
 				break;		
 		}
 		 
-		Data = _vehicleService.GetPaginatedResult(vehicles.ToList(), currentPage ?? 1, PageSize);
-        	Count = _vehicleService.GetCount(vehicles.ToList());
+		Data = _vehicleService.GetPaginatedResult<VehicleMakeModel>(vehicles.ToList(), currentPage ?? 1, PageSize);
+        	Count = _vehicleService.GetCount<VehicleMakeModel>(vehicles.ToList());
 
     		return Page();
 	}
