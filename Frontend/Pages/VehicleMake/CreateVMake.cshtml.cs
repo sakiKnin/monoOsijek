@@ -33,7 +33,7 @@ namespace Frontend.Pages.VehicleMake
 		   	Abbrevation=Vehicle.Abbrevation,
 		  	};
 
-		var response = await _apiClient.PostVehicleMakeAsync(vehicle);
+		var response = await _apiClient.PostVehicleMakeAsync<VehicleMakeModel>(vehicle);
 		ViewData["status"]=response.Id;
 		
 		return Page();

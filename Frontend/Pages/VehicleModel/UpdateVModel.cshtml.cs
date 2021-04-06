@@ -26,7 +26,7 @@ namespace Frontend.Pages.VehicleModel
 
         public async Task<IActionResult> OnGet(int makeId)
         {
-            VehicleModel = await _apiClient.GetVehicleModelAsync(makeId);
+            VehicleModel = await _apiClient.GetVehicleModelAsync<VehicleModelResponse>(makeId);
 
             if (VehicleModel == null)
             {

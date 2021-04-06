@@ -26,7 +26,7 @@ namespace Frontend.Pages.VehicleMake
 
         public async Task<IActionResult> OnGet(int id)
         {
-            VehicleMake = await _apiClient.GetVehicleMakeAsync(id);
+            VehicleMake = await _apiClient.GetVehicleMakeAsync<VehicleMakeResponse>(id);
 
             if (VehicleMake == null)
             {
@@ -37,7 +37,7 @@ namespace Frontend.Pages.VehicleMake
         }
 	public async Task<IActionResult> OnPost(int id)
         {
-	    if(String.IsNullOrEmpty(Vehicle.Name) || String.IsNullOrEmpty(Vehicle.Abbrevation))
+	    if( Vehicle.Name.Length<3 || Vehicle.Abbrevation.Length<3 )
 			 return Page();
 
 	    var vehicle = new VehicleMakeModel{

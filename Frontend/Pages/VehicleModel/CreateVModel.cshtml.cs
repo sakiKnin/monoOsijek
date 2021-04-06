@@ -34,7 +34,7 @@ namespace Frontend.Pages.VehicleModel
 		   	Abbrevation=Vehicle.Abbrevation,
 		  	};
 
-		var response = await _apiClient.PostVehicleModelAsync(vehicle);
+		var response = await _apiClient.PostVehicleModelAsync<VehicleModelModel>(vehicle);
 		ViewData["status"]=response.Id;
 		
 		return Page();

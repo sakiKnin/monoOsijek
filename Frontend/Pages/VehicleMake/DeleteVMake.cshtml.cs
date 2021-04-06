@@ -23,7 +23,7 @@ namespace Frontend.Pages.VehicleMake
         public async Task<IActionResult> OnPost(int id)
 	{
 		 
-		VehicleMakeModel response = await _apiClient.DeleteVehicleMakeAsync(id);
+		VehicleMakeModel response = await _apiClient.DeleteVehicleMakeAsync<VehicleMakeModel>(id);
 			
 		ViewData["status"]=response.Id;
     		

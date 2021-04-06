@@ -54,7 +54,7 @@ namespace Frontend.Pages.VehicleModel
 	
 		ViewData["CurrentFilter"] = searchString;
 		
-    		var response = await _apiClient.GetVehicleModelAsync();
+    		var response = await _apiClient.GetVehicleModelAsync<VehicleModelResponse>();
 		
 		Vehicles = _mapper.Map<List<VehicleModelModel>>(response);
 

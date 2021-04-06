@@ -9,8 +9,6 @@ using Frontend.Services;
 using Frontend.Models;
 using AutoMapper;
 
-using Microsoft.EntityFrameworkCore;
-
 namespace Frontend.Pages.VehicleMake
 {
     public class IndexVMakeModel : PageModel
@@ -56,7 +54,7 @@ namespace Frontend.Pages.VehicleMake
 	
 		ViewData["CurrentFilter"] = searchString;
 		
-    		var response = await _apiClient.GetVehicleMakeAsync();
+    		var response = await _apiClient.GetVehicleMakeAsync<VehicleMakeResponse>();
 		
 		Vehicles = _mapper.Map<List<VehicleMakeModel>>(response);
 

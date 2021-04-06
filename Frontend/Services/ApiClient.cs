@@ -20,31 +20,31 @@ namespace Frontend.Services
 
 	// Services to get, set, delete and update VehicleMake items
 
-        public async Task<List<VehicleMakeResponse>> GetVehicleMakeAsync()
+        public async Task<List<T>> GetVehicleMakeAsync<T>()
         {
             var response = await _httpClient.GetAsync("/api/VehicleMake");
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsAsync<List<VehicleMakeResponse>>();
+            return await response.Content.ReadAsAsync<List<T>>();
 	     
         }
 
-	public async Task<VehicleMakeResponse> GetVehicleMakeAsync(int id)
+	public async Task<T> GetVehicleMakeAsync<T>(int id)
         {
             var response = await _httpClient.GetAsync($"/api/VehicleMake/{id}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                return null;
+                return default(T);
             }
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsAsync<VehicleMakeResponse>();
+            return await response.Content.ReadAsAsync<T>();
         }
 	 
-	public async Task<VehicleMakeModel> PostVehicleMakeAsync(VehicleMakeModel model)
+	public async Task<T> PostVehicleMakeAsync<T>(VehicleMakeModel model)
         {
             var vehicle = new VehicleMakeResponse
 	    {
@@ -60,7 +60,7 @@ namespace Frontend.Services
 		if(response.IsSuccessStatusCode)
 	    	{
 	    		var responseText = await response.Content.ReadAsStringAsync();
-	    		var data = JsonConvert.DeserializeObject<VehicleMakeModel>(responseText);
+	    		var data = JsonConvert.DeserializeObject<T>(responseText);
 
 	    		return data;
 	    	}
@@ -76,7 +76,7 @@ namespace Frontend.Services
 		 Console.WriteLine(e.ToString());
 	    }
 
-	    return new VehicleMakeModel();
+	    return default(T);
 	     
         }
 	public async Task<bool> UpdateVehicleMakeAsync(int id, VehicleMakeModel vehicle)
@@ -93,7 +93,7 @@ namespace Frontend.Services
 		return false;
 	}
 	
-	public async Task<VehicleMakeModel> DeleteVehicleMakeAsync(int id)
+	public async Task<T> DeleteVehicleMakeAsync<T>(int id)
 	{
 		var response = await _httpClient.DeleteAsync($"/api/VehicleMake/{id}");
 		 
@@ -101,44 +101,44 @@ namespace Frontend.Services
 		if(response.IsSuccessStatusCode){
 	      
              		var responseText = await response.Content.ReadAsStringAsync();
-			var data = JsonConvert.DeserializeObject<VehicleMakeModel>(responseText);
+			var data = JsonConvert.DeserializeObject<T>(responseText);
 		 
 			return data;
 		}
 		else
 		{
-			return new VehicleMakeModel();
+			return default(T);
 		}
 		
 	}
 
 	// Services to get, set, delete and update VehicleModel items
 	
-	public async Task<List<VehicleModelResponse>> GetVehicleModelAsync()
+	public async Task<List<T>> GetVehicleModelAsync<T>()
         {
             var response = await _httpClient.GetAsync("/api/VehicleModel");
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsAsync<List<VehicleModelResponse>>();
+            return await response.Content.ReadAsAsync<List<T>>();
 	     
         }
 
-	public async Task<VehicleModelResponse> GetVehicleModelAsync(int id)
+	public async Task<T> GetVehicleModelAsync<T>(int id)
         {
             var response = await _httpClient.GetAsync($"/api/VehicleModel/{id}");
 
             if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                return null;
+                return default(T);
             }
 
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsAsync<VehicleModelResponse>();
+            return await response.Content.ReadAsAsync<T>();
         }
 	 
-	public async Task<VehicleModelModel> PostVehicleModelAsync(VehicleModelModel model)
+	public async Task<T> PostVehicleModelAsync<T>(VehicleModelModel model)
         {
             var vehicle = new VehicleModelResponse
 	    {
@@ -155,7 +155,7 @@ namespace Frontend.Services
 		if(response.IsSuccessStatusCode)
 	    	{
 	    		var responseText = await response.Content.ReadAsStringAsync();
-	    		var data = JsonConvert.DeserializeObject<VehicleModelModel>(responseText);
+	    		var data = JsonConvert.DeserializeObject<T>(responseText);
 
 	    		return data;
 	    	}
@@ -171,7 +171,7 @@ namespace Frontend.Services
 		 Console.WriteLine(e.ToString());
 	    }
 
-	    return new VehicleModelModel();
+	    return default(T);
 	     
         }
 	public async Task<bool> UpdateVehicleModelAsync(int id, VehicleModelModel vehicle)
@@ -188,7 +188,7 @@ namespace Frontend.Services
 		return false;
 	}
 	
-	public async Task<VehicleModelModel> DeleteVehicleModelAsync(int id)
+	public async Task<T> DeleteVehicleModelAsync<T>(int id)
 	{
 		var response = await _httpClient.DeleteAsync($"/api/VehicleModel/{id}");
 		Console.WriteLine("MY response :" + response);
@@ -196,13 +196,13 @@ namespace Frontend.Services
 		if(response.IsSuccessStatusCode){
 	      
              		var responseText = await response.Content.ReadAsStringAsync();
-			var data = JsonConvert.DeserializeObject<VehicleModelModel>(responseText);
+			var data = JsonConvert.DeserializeObject<T>(responseText);
 		 
 			return data;
 		}
 		else
 		{
-			return new VehicleModelModel();
+			return default(T);
 		}
 		
 	}

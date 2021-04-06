@@ -9,21 +9,18 @@ namespace Frontend.Services
 {
     public interface IApiClient
     {
-   
        // Abstractions for VehicleMake service
-	
-       Task<List<VehicleMakeResponse>> GetVehicleMakeAsync();
-       Task<VehicleMakeResponse> GetVehicleMakeAsync(int id);
-       Task<VehicleMakeModel> PostVehicleMakeAsync(VehicleMakeModel model);
+       Task<List<T>> GetVehicleMakeAsync<T>();
+       Task<T> GetVehicleMakeAsync<T>(int id);
+       Task<T> PostVehicleMakeAsync<T>(VehicleMakeModel model);
        Task<bool> UpdateVehicleMakeAsync(int id, VehicleMakeModel vehicle);
-       Task<VehicleMakeModel> DeleteVehicleMakeAsync(int id);
+       Task<T> DeleteVehicleMakeAsync<T>(int id);
 
        // Abstractions for VehicleModel service	
-
-       Task<List<VehicleModelResponse>> GetVehicleModelAsync();
-       Task<VehicleModelResponse> GetVehicleModelAsync(int id);
-       Task<VehicleModelModel> PostVehicleModelAsync(VehicleModelModel model);
+       Task<List<T>> GetVehicleModelAsync<T>();
+       Task<T> GetVehicleModelAsync<T>(int id);
+       Task<T> PostVehicleModelAsync<T>(VehicleModelModel model);
        Task<bool> UpdateVehicleModelAsync(int id, VehicleModelModel vehicle);
-       Task<VehicleModelModel> DeleteVehicleModelAsync(int id);
+       Task<T> DeleteVehicleModelAsync<T>(int id);
     }
 }
